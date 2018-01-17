@@ -12,7 +12,7 @@ filelist = os.listdir(path)
 filelist = sorted(filelist)
 
 # page breaks weeks: 0 - 9
-pages = ["00250023", "00970095", "01830181", "02120210", "02650263", "03530351", "04850483", "05870585", "07210719", "00930091"]
+pages = ["00250023", "00970095", "01830181", "02120210", "02650263", "03530351", "04850483", "05870585", "07210719", "09930991"]
 dates = ["Dec 03 - Dec 09", "Dec 10 - Dec 16", "Dec 17 - Dec 23", 
         "Dec 24 - Dec 30", "Dec 31 - Jan 06", "Jan 07 - Jan 13", 
         "Jan 14 - Jan 20", "Jan 21 - Jan 27", "Jan 28 - Feb 03", 
@@ -70,4 +70,7 @@ for i in range(0, len(freqs)):
     print dates[i], "|", freqs[i]
     
 
+import matplotlib.pyplot as plt
+plt.plot([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], freqs, 'ro')
+plt.show()
 
