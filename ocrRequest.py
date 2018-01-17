@@ -25,7 +25,7 @@ for fname in os.listdir(path): # get all the filenames
     print "processing file", i, "of", len(os.listdir(path)), ": ", path + fname
     fnameshort = fname.split('.')[0] # get just the name no extension
 
-    ofile = open(opath + fnameshort + "txt", "w")
+    ofile = open(opath + fnameshort + ".txt", "w")
     filename = path + fname
     response = ocr_file (filename)
     js = json.loads(response)
