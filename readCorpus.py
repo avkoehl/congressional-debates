@@ -52,5 +52,5 @@ for i in range(0, len(filelist)):
 
 
 with open('texts.pkl', 'wb') as f:
-   pickle.dump(text, f)
+   pickle.dump(texts, f)
 
