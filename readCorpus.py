@@ -1,7 +1,5 @@
 # PYTHON 2
 import os
-from nltk import word_tokenize
-import math
 import pickle
 
 

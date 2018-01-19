@@ -1,4 +1,6 @@
 #python2
+from nltk import word_tokenize
+import math
 import pickle
 import matplotlib.pyplot as plt
 
