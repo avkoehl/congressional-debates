@@ -16,12 +16,6 @@ pages = ["00250023", "00970095", "01830181",
         "04850483", "05870585", "07210719", 
         "09930991"]
 
-# Coresponding Dates for weeks 0 - 9
-dates = ["Dec 03 - Dec 09", "Dec 10 - Dec 16", "Dec 17 - Dec 23", 
-        "Dec 24 - Dec 30", "Dec 31 - Jan 06", "Jan 07 - Jan 13", 
-        "Jan 14 - Jan 20", "Jan 21 - Jan 27", "Jan 28 - Feb 03", 
-        "Feb 10 - Feb 17"]
-
 files = []
 
 

@@ -9,6 +9,12 @@ import matplotlib.pyplot as plt
 with open('texts.pkl', 'rb') as f:
    texts = pickle.load(f)
 
+# Coresponding Dates for weeks 0 - 9
+dates = ["Dec 03 - Dec 09", "Dec 10 - Dec 16", "Dec 17 - Dec 23", 
+        "Dec 24 - Dec 30", "Dec 31 - Jan 06", "Jan 07 - Jan 13", 
+        "Jan 14 - Jan 20", "Jan 21 - Jan 27", "Jan 28 - Feb 03", 
+        "Feb 10 - Feb 17"]
+
 # Now in texts[0] is all the text up to 00250023 and texts[1] has 00250023 to 00970095 and so on
 # need to tokenize each element in texts and then calculate word frequencies, will use nltk
 searchword = "union"
@@ -29,11 +35,6 @@ for i in range (0, len(texts)):
         freqs.append(math.log10(frequency))
     else:
         freqs.append(0)
-
-print "searchword:", searchword
-for i in range(0, len(freqs)):
-    print dates[i], "|", freqs[i]
-    
 
 plt.plot([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], freqs, 'ro')
 plt.show()
