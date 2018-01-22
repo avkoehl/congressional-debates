@@ -1,11 +1,7 @@
-Written for python2 and python3. Eventually should be reworked to only be python3!
+Written for python3
 
 Running list of modules needed:
 
-  Python3
-    urllib
-
-  Python2.7 
     os
     math
     json
@@ -24,8 +20,8 @@ All of the data can be found on box.
 The order in which these scripts are run:
 
   // Get and Read in the Dataset
-  [1] getimagelinks.py    -Python3
-  [2] downloadimages.py   -Python3
+  [1] getimagelinks.py    
+  [2] downloadimages.py  
   [3] ocrRequest.py
   [4] readCorpus.py
 
@@ -33,8 +29,31 @@ The order in which these scripts are run:
 
   // Analysis to be run 
   [5] frequency.py
-  [6] posdist.py
-  [7] cpdetection.py
+  [6] syntactic.py
+  [7] distributional.py
+ 
+
+General Hierarchy of File List:
+
+  readme.txt
+
+  /TimeSeries
+    frequency.py
+    syntactic.py
+    distributional.py
+
+  /Corpus
+    getimagelinks.py
+    downloadimages.py
+    ocrRequest.py
+    readCorpus.py
+
+    texts.pkl
+
+    /Images
+    /Text
+    /ngrams
+
 
 
 
