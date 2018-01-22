@@ -1,4 +1,4 @@
-# PYTHON 2
+# PYTHON 3
 import requests
 import json
 import os
@@ -22,7 +22,7 @@ opath = './texts/36th/'
 i = 0
 failed = 0
 for fname in os.listdir(path): # get all the filenames
-    print "processing file", i, "of", len(os.listdir(path)), ": ", path + fname
+    print ("processing file", i, "of", len(os.listdir(path)), ": ", path + fname)
     fnameshort = fname.split('.')[0] # get just the name no extension
 
     ofile = open(opath + fnameshort + ".txt", "w")
@@ -35,14 +35,13 @@ for fname in os.listdir(path): # get all the filenames
         text = text.encode('utf-8')
         ofile.write(text)
     except:
-        print "failed!"
-        print js.encode('utf-8')
+        print ("failed!")
+        print (js.encode('utf-8'))
         ofile.write(js.encode('utf-8'))
         failed = failed + 1
 
     i = i + 1
 
-print "number of failed runs:", failed
 
 ### ADDITIONAL INFORMATION AND EXAMPLES
 # FOR FREE OCR API / 25 pages per day for one month
