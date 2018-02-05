@@ -1,1 +1,0 @@
-rename tif jpg *.tif
