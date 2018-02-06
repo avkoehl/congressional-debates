@@ -20,12 +20,13 @@ pages = ["00250023", "00970095", "01830181",
 
 pb = 0
 texts = []
+text = []
 for i in range(0, len(filelist)):
-    text = []
     full = filelist[i]
     num = full.split('.')[0]
     with open(path + full, 'r') as myfile:
         text.append(myfile.read().replace('\n', '').replace('\r', ''))
+
 
     if (num == pages[pb]):
         texts.append(" ".join(text))
@@ -39,7 +40,7 @@ for i in range(0, len(texts)):
     sentences = []
     for j in range(0, len(doc)):
         ngram = ngram + " " + doc[j]
-        if j % 5 == 0:
+        if j % 5 == 0 and j > 0:
             sentences.append(ngram)
             ngram = ""
 
