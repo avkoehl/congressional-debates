@@ -81,7 +81,8 @@ plt.plot(weeks, jsds, '--ro')
 axes = plt.gca()
 axes.set_ylim([0,.5])
 plt.xticks( range(0,10,1))
-plt.show()
+plt.savefig("pos.png")
+#plt.show()
 
 ## Plot the Stacked Area time series for part of speech distribution
 # not sure, look up

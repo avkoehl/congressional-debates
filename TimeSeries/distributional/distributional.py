@@ -2,6 +2,8 @@
 import os, time, gensim
 from gensim.models import translation_matrix
 from gensim.models import KeyedVectors
+import matplotlib.pyplot as plt
+from scipy import spatial
 
 """ Distributional model for Linguistic shift time sereis construction
         For each time slot,
@@ -15,14 +17,25 @@ from gensim.models import KeyedVectors
 
 ##
 weeks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+distances = []
 
 for i in range(0, len(weeks)):
     model = gensim.models.Word2Vec.load("./models/" + str(i) + ".model")
-    print (len(model.wv.vocab))
+    target = gensim.models.Word2Vec.load("./models/0.model")
+    target_word = target.wv["slave"]
+    current_word = model.wv["slave"]
 
-    print (model.wv.vocab)
-    #print top 20 words:
-    #for i in range (0, 20):
-    #    print (model.wv.vocab[0])
+    distances.append(spatial.distance.cosine(target_word, current_word))
 
+
+
+plt.plot(weeks, distances, '--ro')
+axes = plt.gca()
+axes.set_ylim([0,1])
+plt.xticks( range(0,10,1))
+plt.savefig("result.png")
+#plt.show()
+
+## Plot the Stacked Area time series for part of speech distribution
+# not sure, look up
 

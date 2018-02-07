@@ -25,5 +25,6 @@ plt.plot(weeks, freqs, '--ro')
 axes = plt.gca()
 axes.set_ylim([-5,0])
 plt.xticks(range(0,10,1), weeks)
-plt.show()
+plt.savefig("usage.png")
+#plt.show()
 
