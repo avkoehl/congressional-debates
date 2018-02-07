@@ -18,5 +18,11 @@ weeks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 for i in range(0, len(weeks)):
     model = gensim.models.Word2Vec.load("./models/" + str(i) + ".model")
+    print (len(model.wv.vocab))
+
+    print (model.wv.vocab)
+    #print top 20 words:
+    #for i in range (0, 20):
+    #    print (model.wv.vocab[0])
 
 

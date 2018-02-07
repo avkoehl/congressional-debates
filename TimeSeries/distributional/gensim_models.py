@@ -7,7 +7,7 @@ import os, time, gensim
 """
 
 ##
-path = '../Corpus/weeks/'
+path = '../../Corpus/weeks/'
 filelist = sorted(os.listdir(path))
 weeks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -19,7 +19,8 @@ for i in range (0, len(weeks)):
     with open (path + str(i) + ".txt", "r") as myfile:
         print ("Training Model ", i, " ...")
         start = time.time()
-        model = gensim.models.Word2Vec(myfile.readlines(), sg=1)
+        sentences = gensim.models.word2vec.LineSentence(myfile)
+        model = gensim.models.Word2Vec(sentences, sg=1)
         model.save("./models/" + str(i)+".model")
         end = time.time()
         print ("time elapsed: ", end - start)
