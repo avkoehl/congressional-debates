@@ -51,7 +51,7 @@ for i in range (0, len(weeks)):
         parts = [] #for each text, to be appended into parts_of_speech
         for line in myfile:
             if searchword in line:
-                pos = pos_tag(word_tokenize(s))
+                pos = pos_tag(word_tokenize(line))
                 for j in range (0, len(pos)):
                     if str(pos[j][0]) == searchword:
                         parts.append(pos[j][1])
@@ -78,6 +78,9 @@ for i in range(0, len(distributions)):
 
 ## Plot the Jensen Shannon Divergence Time Series for each snapshot
 plt.plot(weeks, jsds, 'ro')
+axes = plt.gca()
+axes.set_ylim([0,1])
+plt.xticks( range(0,10,1))
 plt.show()
 
 ## Plot the Stacked Area time series for part of speech distribution
