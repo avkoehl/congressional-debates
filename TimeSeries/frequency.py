@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 path = '../Corpus/weeks/'
 filelist = sorted(os.listdir(path))
 
-weeks = ["Dec 03", "Dec 10", "Dec 17", "Dec 24", "Dec 31", "Jan 07", "Jan 14", "Jan 21", "Jan 28", "Feb 04"]
+weeks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 searchword = "state"
 freqs = [] 
 

@@ -77,9 +77,9 @@ for i in range(0, len(distributions)):
 ###############################################################################
 
 ## Plot the Jensen Shannon Divergence Time Series for each snapshot
-plt.plot(weeks, jsds, 'ro')
+plt.plot(weeks, jsds, '--ro')
 axes = plt.gca()
-axes.set_ylim([0,1])
+axes.set_ylim([0,.5])
 plt.xticks( range(0,10,1))
 plt.show()
 
