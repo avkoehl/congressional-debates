@@ -34,14 +34,9 @@ for i in range(0, len(filelist)):
 
 
 for i in range(0, len(texts)):
-    doc = re.split('\W+' , texts[i])
-    ngram = ""
-    sentences = []
-    for j in range(0, len(doc)):
-        ngram = ngram + " " + doc[j]
-        if j % 5 == 0 and j > 0:
-            sentences.append(ngram)
-            ngram = ""
+    #sentences = re.split(r'(?<!\w.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', texts[i]) #would be nice ... do this on better formatted text
+    text = texts[i].replace('?','.')
+    sentences = text.split(". ")
 
     with open("./weeks/" + str(i) + ".txt", "w") as f:
         f.writelines( "%s\n" % item for item in sentences)
