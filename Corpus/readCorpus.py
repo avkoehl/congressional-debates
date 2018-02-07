@@ -1,6 +1,5 @@
 # PYTHON 3
 import os
-import pickle
 import re
 
 
