@@ -8,8 +8,7 @@ filelist = sorted(os.listdir(path))
 
 weeks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 searchword = "state"
-freqs = []
-
+freqs = [] 
 
 for i in range (0, len(weeks)):
     with open(path + str(i) + ".txt", "r") as myfile:
@@ -23,5 +22,8 @@ for i in range (0, len(weeks)):
             freqs.append(0)
 
 plt.plot(weeks, freqs, 'ro')
+axes = plt.gca()
+axes.set_ylim([-5,0])
+plt.xticks( range(0,10,1))
 plt.show()
 
