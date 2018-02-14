@@ -4,6 +4,7 @@ from gensim.models import translation_matrix
 from gensim.models import KeyedVectors
 import matplotlib.pyplot as plt
 from scipy import spatial
+import numpy as np
 
 """ Distributional model for Linguistic shift time sereis construction
         For each time slot,
@@ -39,7 +40,7 @@ def smart_procrustes_align_gensim(base_embed, other_embed, words=None):
     ortho = u.dot(v)
     # Replace original array with modified one
     # i.e. multiplying the embedding matrix (syn0norm)by "ortho"
-    other_embed.syn0norm = other_embed.syn0 = (other_embed.syn0norm).dot(ortho)
+    other_embed.wv.syn0norm = other_embed.wv.syn0 = (other_embed.wv.syn0norm).dot(ortho)
     return other_embed
 
 
@@ -69,7 +70,7 @@ def intersection_align_gensim(m1,m2, words=None):
 
     # Otherwise sort by frequency (summed for both)
     common_vocab = list(common_vocab)
-    common_vocab.sort(key=lambda w: m1.vocab[w].count + m2.vocab[w].count,reverse=True)
+    common_vocab.sort(key=lambda w: m1.wv.vocab[w].count + m2.wv.vocab[w].count,reverse=True)
 
     # Then for each model...
     for m in [m1,m2]:
@@ -77,7 +78,7 @@ def intersection_align_gensim(m1,m2, words=None):
         indices = [m.wv.vocab[w].index for w in common_vocab]
         old_arr = m.wv.syn0norm
         new_arr = np.array([old_arr[index] for index in indices])
-        m.syn0norm = m.wv.syn0 = new_arr
+        m.wv.syn0norm = m.wv.syn0 = new_arr
 
         # Replace old vocab dictionary with new one (with common vocab)
         # and old index2word with new one
@@ -104,13 +105,13 @@ for i in range(0, len(weeks)):
     model = gensim.models.Word2Vec.load("./models/" + str(i) + ".model")
     base = gensim.models.Word2Vec.load("./models/0.model")
 
+    model.init_sims()
+    base.init_sims()
+
     #[2] Align model to first vector
     aligned = smart_procrustes_align_gensim (base, model)
 
-    target_word = base.vw["slave"] 
-    current_word = model.vw["slave"] 
-
-    distances.append(spatial.distance.cosine(target_word, current_word))
+    #distances.append(spatial.distance.cosine(target_word, current_word))
 
 
 
