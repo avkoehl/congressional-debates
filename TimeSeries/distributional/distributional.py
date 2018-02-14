@@ -108,10 +108,13 @@ for i in range(0, len(weeks)):
     model.init_sims()
     base.init_sims()
 
+    base_word = base.wv["slave"]
+    current_word = model.wv["slave"]
+
     #[2] Align model to first vector
     aligned = smart_procrustes_align_gensim (base, model)
 
-    #distances.append(spatial.distance.cosine(target_word, current_word))
+    distances.append(spatial.distance.cosine(base_word, current_word))
 
 
 
